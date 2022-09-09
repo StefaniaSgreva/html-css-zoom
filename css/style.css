@@ -5,21 +5,16 @@
     box-sizing: border-box;
 }
 
-.clearfix:after {
-    content: "";
-    visibility: hidden;
-    display: block;
-    height: 0;
-    clear: both;
-}
 
 .debug{
     border: 1px solid red;
-    min-height: 150px;
+    min-height: 4vh;
   }
+
 /* COLORS ROOT  */
 :root{
     --black: #000000;
+    --light-black: #171717;
     --white: #ffffff;
     --green: #4bc800;
     --red: red;
@@ -30,82 +25,112 @@
 /* GENERAL */
 
 body{
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: var(--black);
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
     color: var(--white);
+}
+
+#wrapper{
+    width: 100%;
     height: 100vh;
+    overflow: hidden;
+    background-color: var(--light-black);
 }
 
-
-
-nav{
-    width: 100%;
-    height: 100px;
-}
-
-footer{
-    width: 100%;
-    height: 80px;
-    background-color: var(--dark-gray);
-    margin-bottom: 40px;
-    clear: both;
-}
-
-.flexbox-header{
+.flex-container{ /* di base per tutti e 3*/
     display: flex;
     flex-flow: row nowrap;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
 }
-ul li{
-    list-style: none;
-    padding: 10px;
-    font-size: 14px;
+
+.wrap{
+    flex-wrap: wrap;
+}
+
+.end{
+    justify-content: flex-end;
+}
+
+.start{
+    justify-content: flex-start;
+}
+
+.center{
+    justify-content: center;
+}
+
+.column{
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;   
+}
+
+/* HEADER  */
+
+header{
+    width: 100%;
+    height: 50px;
+    background-color: var(--black);
+    padding: 5px;
+}
+
+header button{
     background-color: var(--light-gray);
+    color: var(--white);
+    border: 0;
     border-radius: 5px;
-    margin: 0 5px;
-  }
+    padding: 5px;
+    margin: 3px;
+}
 
   /* MAIN  */
 
-.container{   
-    max-width: 90%;
-    margin: 0 auto;  
+main{
+    max-width: 1400px;
+    margin: 0 auto;
+    height: calc(100% - 150px);/*siccome il wrapper ha h in vh possiamo usare le % nel calc - 150 perchè somma h footer e header 100+50*/
+    overflow-y: auto;
+    padding: 5px; 
 }
 
-.gallery{
-    margin: 3px;
-    float: left;
-    width: calc(100% / 7 - 6px);   
-}
-
-.user-img img{
-    width: 100%;
-    
-}
-
-/* .lable{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+.user-card{
+    width: calc(100% / 6);
+    /* min-width: 300px; */
     padding: 5px;
-} */
+}
+
+.img-user img{
+    width: 100%;
+}
+
+.img-user{
+    position: relative;
+}
+
+.img-user span{
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 50%;
+    background-color: #4a4a4aa8;
+    color: var(--white);
+}
+
+
+
+
+
 
 /* FOOTER  */
-.footer-row{
-    display: flex;
-    justify-content: space-between;
-    padding: 30px 10px;
+
+footer{
+    width: 100%;
+    height: 100px;
+    background-color: var(--dark-gray);
+    padding: 5px;
 }
 
-footer a{
-    color: var(--white);
-    font-size: 28px;
-    padding-left: 10px;
-}
-
-.end-meeting{
-    color: red;
-    font-size: 14px;
+ul li{
+    list-style: none;
 }
